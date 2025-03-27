@@ -74,7 +74,7 @@ h1 {
     padding: 5px;
 }
 
-/* Rarity borders inspired by CS:GO */
+/* Seltenheit borders inspiriert von CS:GO */
 .item.common { border: 3px solid #b0c3d9; background: #fff; } /* Consumer Grade */
 .item.uncommon { border: 3px solid #5e98d9; background: #fff; } /* Industrial Grade */
 .item.rare { border: 3px solid #4b69ff; background: #fff; } /* Mil-Spec */

@@ -1,29 +1,29 @@
-let balance = getCookie('balance') !== null ? getCookie('balance') : 1000;
-const boardWidth = 600;
-const boardHeight = 600;
-const pegSize = 10;
-const ballSize = 20;
-const slotHeight = 50;
-const rows = 8;
-const cols = 9;
-const slotMultipliers = [500, 50, 10, 8, 3, 2, 1, 0.5, 0.2, 0.2, 0.5, 1, 2, 3, 8, 10, 50, 500];
-let activeBalls = 0;
+let balance = getCookie('balance') !== null ? getCookie('balance') : 1000; // Startguthaben aus Cookie oder 1000
+const boardWidth = 600; // Breite des Spielfelds
+const boardHeight = 600; // Höhe des Spielfelds
+const pegSize = 10; // Größe der Stifte
+const ballSize = 20; // Größe des Balls
+const slotHeight = 50; // Höhe der Slots
+const rows = 8; // Anzahl Reihen
+const cols = 9; // Anzahl Spalten
+const slotMultipliers = [500, 50, 10, 8, 3, 2, 1, 0.5, 0.2, 0.2, 0.5, 1, 2, 3, 8, 10, 50, 500]; // Multiplikatoren
+let activeBalls = 0; // Aktive Bälle
 
-function getCookie(name) {
+function getCookie(name) { // Cookie lesen
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parseFloat(parts.pop().split(';').shift());
     return null;
 }
 
-function setCookie(name, value, days = 365) {
+function setCookie(name, value, days = 365) { // Cookie setzen
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
     document.cookie = `${name}=${value.toFixed(2)};${expires};path=/`;
 }
 
-function updateBalance() {
+function updateBalance() { // Guthaben aktualisieren
     setCookie('balance', balance);
     document.getElementById('balance').textContent = balance.toFixed(2);
     const dropButton = document.getElementById('drop-button');
@@ -31,7 +31,7 @@ function updateBalance() {
     dropButton.disabled = balance < ballPrice;
 }
 
-function createBoard() {
+function createBoard() { // Spielfeld erstellen
     const board = document.getElementById('plinko-board');
     const isMobile = window.innerWidth <= 600;
     const width = isMobile ? 300 : boardWidth;
@@ -63,13 +63,13 @@ function createBoard() {
     });
 }
 
-function dropBall() {
+function dropBall() { // Ball fallen lassen
     const board = document.getElementById('plinko-board');
     const ballPriceInput = document.getElementById('ball-price');
     const ballPrice = parseFloat(ballPriceInput.value) || 10;
 
     if (balance < ballPrice || isNaN(ballPrice) || ballPrice <= 0) {
-        alert('Not enough balance or invalid ball price!');
+        alert('Nicht genug Geld oder ungültiger Preis!');
         return;
     }
 
@@ -93,7 +93,7 @@ function dropBall() {
     let velocityX = 0;
     let velocityY = 0;
 
-    function animate() {
+    function animate() { // Ball animieren
         velocityY += 0.5;
         currentY += velocityY;
         velocityX += (Math.random() - 0.5) * 2;
@@ -141,6 +141,6 @@ function dropBall() {
 
 document.getElementById('drop-button').addEventListener('click', dropBall);
 
-// Initial setup
+// Start einrichten
 createBoard();
 updateBalance();

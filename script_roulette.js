@@ -1,22 +1,22 @@
-let balance = getCookie('balance') !== null ? getCookie('balance') : 500; // Load from cookie or default to 500
-let currentBet = 0;
-let selectedBet = null;
+let balance = getCookie('balance') !== null ? getCookie('balance') : 500; // Startguthaben aus Cookie oder 500
+let currentBet = 0; // Aktueller Einsatz
+let selectedBet = null; // Gewählte Wette
 
-function getCookie(name) {
+function getCookie(name) { // Cookie lesen
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parseFloat(parts.pop().split(';').shift());
     return null;
 }
 
-function setCookie(name, value, days = 365) {
+function setCookie(name, value, days = 365) { // Cookie setzen
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     const expires = `expires=${date.toUTCString()}`;
     document.cookie = `${name}=${value.toFixed(2)};${expires};path=/`;
 }
 
-function shuffle(array) {
+function shuffle(array) { // Array mischen
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -24,15 +24,15 @@ function shuffle(array) {
     return array;
 }
 
-function updateBalance() {
-    setCookie('balance', balance); // Save to cookie on every update
+function updateBalance() { // Guthaben aktualisieren
+    setCookie('balance', balance);
     document.getElementById('money').innerText = balance.toFixed(2);
     const spinBtn = document.getElementById('spin');
     const betAmount = parseInt(document.getElementById('bet-amount').value) || 0;
-    spinBtn.disabled = balance < betAmount || !selectedBet; // Disable if insufficient funds or no bet selected
+    spinBtn.disabled = balance < betAmount || !selectedBet;
 }
 
-function createWheel() {
+function createWheel() { // Roulette-Rad erstellen
     const slotsContainer = document.getElementById('wheel-slots');
     slotsContainer.innerHTML = '';
     
@@ -56,7 +56,7 @@ function createWheel() {
     return shuffledSlots;
 }
 
-function selectBet(event) {
+function selectBet(event) { // Wette auswählen
     const btn = event.target;
     if (!btn.classList.contains('bet-btn')) return;
 
@@ -64,25 +64,25 @@ function selectBet(event) {
     btn.classList.add('active');
 
     selectedBet = btn.dataset.type;
-    updateBalance(); // Update button state when bet is selected
+    updateBalance();
 }
 
-function spinWheel() {
+function spinWheel() { // Rad drehen
     const betInput = document.getElementById('bet-amount');
     currentBet = parseInt(betInput.value);
 
     if (isNaN(currentBet) || currentBet <= 0) {
-        document.getElementById('message').innerText = 'Please enter a valid bet amount!';
+        document.getElementById('message').innerText = 'Ungültiger Einsatz!';
         return;
     }
 
     if (currentBet > balance) {
-        document.getElementById('message').innerText = 'Not enough chips to place this bet!';
+        document.getElementById('message').innerText = 'Nicht genug Chips!';
         return;
     }
 
     if (!selectedBet) {
-        document.getElementById('message').innerText = 'Please select a bet!';
+        document.getElementById('message').innerText = 'Wette auswählen!';
         return;
     }
 
@@ -91,7 +91,7 @@ function spinWheel() {
 
     const spinBtn = document.getElementById('spin');
     spinBtn.disabled = true;
-    document.getElementById('message').innerText = 'Spinning...';
+    document.getElementById('message').innerText = 'Dreht...';
 
     const shuffledSlots = createWheel();
     const wheel = document.getElementById('wheel-slots');
@@ -126,18 +126,18 @@ function spinWheel() {
             result
         });
 
-        document.getElementById('result').innerText = `Result: ${result}`;
+        document.getElementById('result').innerText = `Ergebnis: ${result}`;
         checkWin(result);
         wheel.style.transition = 'none';
         wheel.style.left = '0px';
         spinBtn.disabled = balance <= 0 || !selectedBet;
         if (balance <= 0) {
-            document.getElementById('message').innerText += ' Game over! You\'re out of chips.';
+            document.getElementById('message').innerText += ' Spiel vorbei! Keine Chips mehr.';
         }
     }, 4000);
 }
 
-function checkWin(result) {
+function checkWin(result) { // Gewinn prüfen
     let winnings = 0;
     if (selectedBet === result) {
         if (result === 'Dice') {
@@ -149,21 +149,21 @@ function checkWin(result) {
 
     if (winnings > 0) {
         balance += winnings;
-        document.getElementById('message').innerText = `You won $${(winnings - currentBet).toFixed(2)}!`;
+        document.getElementById('message').innerText = `Gewonnen: $${(winnings - currentBet).toFixed(2)}!`;
     } else {
-        document.getElementById('message').innerText = 'You lost!';
+        document.getElementById('message').innerText = 'Verloren!';
     }
     updateBalance();
 }
 
-// Event listeners for bet buttons
+// Event-Listener für Wett-Buttons
 document.querySelectorAll('.bet-btn').forEach(btn => {
     btn.addEventListener('click', selectBet);
 });
 
-// Initial setup
+// Start einrichten
 createWheel();
 updateBalance();
 
-// Remove inline onclick and add event listener
+// Event-Listener für Spin-Button
 document.getElementById('spin').addEventListener('click', spinWheel);

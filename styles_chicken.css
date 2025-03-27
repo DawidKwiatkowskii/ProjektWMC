@@ -72,8 +72,8 @@ h1 {
 }
 
 .road {
-    width: 600px; /* Wide for horizontal movement */
-    height: 150px; /* Tall enough for car */
+    width: 600px;
+    height: 150px;
     background: #333;
     border: 5px solid #ffd700;
     border-radius: 10px;
@@ -85,7 +85,7 @@ h1 {
 .chicken {
     position: absolute;
     font-size: 2em;
-    transition: left 0.5s ease; /* Horizontal movement */
+    transition: left 0.5s ease; /* Horizontale bewegung */
     left: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -94,8 +94,8 @@ h1 {
 .car {
     position: absolute;
     font-size: 2em;
-    transition: top 1s linear; /* Vertical movement only */
-    top: -50px; /* Start above road */
+    transition: top 1s linear; /* nur Verticale bewegung */
+    top: -50px; /* Start über der Straße */
 }
 
 .result {

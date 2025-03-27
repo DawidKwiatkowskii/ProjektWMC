@@ -1,5 +1,5 @@
 body {
-    font-family: 'Georgia', serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #1a3c34 0%, #0d1f1b 100%);
@@ -71,15 +71,15 @@ h1 {
 }
 
 .slot.black {
-    background: #000000; /* Black */
+    background: #000000;
 }
 
 .slot.red {
-    background: #ff0000; /* Red */
+    background: #ff0000;
 }
 
 .slot.dice {
-    background: #ffd700; /* Gold for Dice */
+    background: #ffd700;
 }
 
 #pointer {
