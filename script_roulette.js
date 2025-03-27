@@ -113,7 +113,7 @@ function spinWheel() { // Rad drehen
 
     setTimeout(() => {
         const landingSlotIndex = randomSlot;
-        const winningSlotIndex = (landingSlotIndex - 1 + baseSlots) % baseSlots;
+        const winningSlotIndex = (landingSlotIndex) % baseSlots;
         const landingSlotId = `slot-${landingSlotIndex}`;
         const winningSlotId = `slot-${winningSlotIndex}`;
         const landingSlot = document.getElementById(landingSlotId);

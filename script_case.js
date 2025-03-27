@@ -111,3 +111,6 @@ function openCase() { // Kiste öffnen
 // Start einrichten
 createCaseWheel();
 updateBalance();
+
+// Event-Listener für den Button hinzufügen
+document.getElementById('open-case').addEventListener('click', openCase);

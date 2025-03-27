@@ -1,55 +1,37 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, #212529 0%, #6c757d 100%);
+    color: #ffc107;
     min-height: 100vh;
 }
 
-.case-container {
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-    margin: 20px auto;
-    max-width: 1000px;
+.nav-link {
+    color: #ffc107;
+    border: 1px solid #ffc107;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #6c757d;
+    color: #fff;
 }
 
 h1 {
-    font-size: 2.5em;
-    text-align: center;
-    color: #ff9900;
     text-shadow: 2px 2px 4px #000;
-    margin-bottom: 20px;
-}
-
-#game {
-    width: 100%;
 }
 
 .chip-display {
-    font-size: 1.5em;
-    text-align: center;
-    padding: 10px;
-    background: #333;
+    background: #212529;
     border-radius: 10px;
-    margin-bottom: 20px;
-    color: #ff9900;
-}
-
-.chip-icon {
-    margin-right: 5px;
 }
 
 .case-wheel {
     width: 800px;
     height: 150px;
-    margin: 20px auto;
     position: relative;
     overflow: hidden;
-    border: 5px solid #ff9900;
-    background: #1a1a1a;
+    border: 5px solid #ffc107;
+    background: #212529;
     border-radius: 10px;
 }
 
@@ -69,19 +51,18 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-right: 2px solid #ff9900;
+    border-right: 2px solid #ffc107;
     box-sizing: border-box;
     padding: 5px;
 }
 
-/* Seltenheit borders inspiriert von CS:GO */
-.item.common { border: 3px solid #b0c3d9; background: #fff; } /* Consumer Grade */
-.item.uncommon { border: 3px solid #5e98d9; background: #fff; } /* Industrial Grade */
-.item.rare { border: 3px solid #4b69ff; background: #fff; } /* Mil-Spec */
-.item.mythical { border: 3px solid #8847ff; background: #fff; } /* Restricted */
-.item.legendary { border: 3px solid #d32ce6; background: #fff; } /* Classified */
-.item.ancient { border: 3px solid #eb4b4b; background: #fff; } /* Covert */
-.item.exceedingly-rare { border: 3px solid #ffd700; background: #fff; } /* Knife/Glove */
+.item.common { border: 3px solid #b0c3d9; background: #fff; }
+.item.uncommon { border: 3px solid #5e98d9; background: #fff; }
+.item.rare { border: 3px solid #4b69ff; background: #fff; }
+.item.mythical { border: 3px solid #8847ff; background: #fff; }
+.item.legendary { border: 3px solid #d32ce6; background: #fff; }
+.item.ancient { border: 3px solid #eb4b4b; background: #fff; }
+.item.exceedingly-rare { border: 3px solid #ffc107; background: #fff; }
 
 .item img {
     max-width: 90%;
@@ -95,94 +76,35 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     font-size: 2.5em;
-    color: #ff9900;
+    color: #ffc107;
     text-shadow: 1px 1px 2px #000;
 }
 
-.result-display {
-    text-align: center;
-    font-size: 1.8em;
-    margin: 20px 0;
-    color: #ff9900;
-    text-shadow: 1px 1px 2px #000;
+#open-case {
+    background-color: #212529;
+    border-color: #ffc107;
+    color: #ffc107;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.button-area {
-    text-align: center;
-}
-
-button#open-case {
-    padding: 12px 25px;
-    font-size: 1.2em;
-    background: #ff9900;
-    color: #000;
-    border: 2px solid #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.1s;
-}
-
-button#open-case:hover {
-    background: #e68a00;
+#open-case:hover {
+    background-color: #6c757d;
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
 }
 
-button#open-case:disabled {
-    background: #555;
-    border-color: #888;
-    cursor: not-allowed;
-    transform: none;
+#open-case:disabled {
+    background-color: #6c757d;
+    border-color: #212529;
+    opacity: 0.7;
 }
 
 .message-box {
-    font-size: 1.5em;
-    text-align: center;
-    margin: 20px 0;
-    padding: 10px;
-    background: rgba(255, 153, 0, 0.1);
+    background: rgba(255, 193, 7, 0.1);
     border-radius: 5px;
-    color: #ff9900;
 }
 
-.game-nav {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 10px;
-    border-bottom: 2px solid #ffd700;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.nav-link {
-    color: #ffd700;
-    text-decoration: none;
-    font-size: 1.2em;
-    padding: 5px 15px;
-    border: 1px solid #ffd700;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
-}
-
-.nav-link:hover {
-    background: #ff4500;
-    color: #fff;
-}
-/* Mobile responsiveness */
 @media (max-width: 800px) {
-    .case-container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .chip-display {
-        font-size: 1.2em;
-    }
-
     .case-wheel {
         width: 400px;
         height: 120px;
@@ -195,28 +117,5 @@ button#open-case:disabled {
 
     #pointer {
         font-size: 2em;
-    }
-
-    .result-display {
-        font-size: 1.4em;
-    }
-
-    button#open-case {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-
-    .message-box {
-        font-size: 1.2em;
-    }
-
-    .game-nav {
-        gap: 10px;
-        padding: 5px;
-    }
-
-    .nav-link {
-        font-size: 1em;
-        padding: 5px 10px;
     }
 }
