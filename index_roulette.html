@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette Royale</title>
+    <link rel="stylesheet" href="styles_roulette.css">
+</head>
+<body>
+    <nav class="game-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index_plinko.html" class="nav-link">Plinko</a>
+        <a href="index_roulette.html" class="nav-link">Roulette</a>
+        <a href="index_case.html" class="nav-link">Case Opening</a>
+        <a href="index_chicken.html" class="nav-link">Chicken</a>
+    </nav>
+    <div class="casino-table">
+        <h1>Roulette Royale</h1>
+        <div id="game">
+            <div id="balance" class="chip-display">
+                <span class="chip-icon">🎰</span> $<span id="money">500</span>
+            </div>
+            <div id="wheel" class="roulette-wheel">
+                <div id="wheel-slots"></div>
+                <div id="pointer">▼</div>
+            </div>
+            <div id="result" class="result-display">Spin to Play!</div>
+            <div id="betting" class="bet-area">
+                <label for="bet-amount">Bet Amount: $</label>
+                <input type="number" id="bet-amount" min="1" value="10">
+                <div class="bet-options">
+                    <button class="bet-btn" data-type="Black">Black</button>
+                    <button class="bet-btn" data-type="Red">Red</button>
+                    <button class="bet-btn" data-type="Dice">Dice</button>
+                </div>
+            </div>
+            <div id="message" class="message-box"></div>
+            <div id="controls" class="button-area">
+                <button id="spin" onclick="spinWheel()">Spin</button>
+            </div>
+        </div>
+    </div>
+    <script src="script_roulette.js"></script>
+</body>
+</html>

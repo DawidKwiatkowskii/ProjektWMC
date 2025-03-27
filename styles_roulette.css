@@ -1,0 +1,274 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a3c34 0%, #0d1f1b 100%);
+    color: #ffd700;
+    min-height: 100vh;
+}
+
+.casino-table {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    margin: 10px auto;
+    max-width: 900px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px;
+}
+
+#game {
+    width: 100%;
+}
+
+.chip-display {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px;
+    background: #2e1a00;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.chip-icon {
+    margin-right: 5px;
+}
+
+.roulette-wheel {
+    width: 600px;
+    height: 100px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid #ffd700;
+    background: #000;
+}
+
+#wheel-slots {
+    display: flex;
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+}
+
+.slot {
+    width: 40px;
+    height: 100px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #fff;
+    border-right: 1px solid #ffd700;
+}
+
+.slot.black {
+    background: #000000; /* Black */
+}
+
+.slot.red {
+    background: #ff0000; /* Red */
+}
+
+.slot.dice {
+    background: #ffd700; /* Gold for Dice */
+}
+
+#pointer {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: #ffd700;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.result-display {
+    text-align: center;
+    font-size: 1.8em;
+    margin: 10px 0;
+    color: #ffd700;
+}
+
+.bet-area {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.bet-area label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+#bet-amount {
+    padding: 8px;
+    font-size: 1em;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid #ffd700;
+    background: #fff;
+    color: #000;
+}
+
+.bet-options {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bet-btn {
+    padding: 8px 15px;
+    font-size: 1em;
+    background: #b22222;
+    color: #fff;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bet-btn:hover {
+    background: #8b1a1a;
+}
+
+.bet-btn.active {
+    background: #ffd700;
+    color: #000;
+}
+
+button#spin {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    margin: 10px;
+    background: #b22222;
+    color: #fff;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button#spin:hover {
+    background: #8b1a1a;
+}
+
+button#spin:disabled {
+    background: #555;
+    border-color: #888;
+    cursor: not-allowed;
+}
+
+.button-area {
+    text-align: center;
+}
+
+.message-box {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 5px;
+}
+
+.game-nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-bottom: 2px solid #ffd700;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background: #ff4500;
+    color: #fff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .casino-table {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .chip-display {
+        font-size: 1.2em;
+    }
+
+    .roulette-wheel {
+        width: 400px;
+        height: 80px;
+    }
+
+    .slot {
+        width: 26.67px; /* 400px / 15 slots */
+        font-size: 1.2em;
+    }
+
+    #pointer {
+        font-size: 1.5em;
+    }
+
+    .result-display {
+        font-size: 1.4em;
+    }
+
+    .bet-area label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    #bet-amount {
+        width: 80px;
+    }
+
+    .bet-btn {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    button#spin {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    .message-box {
+        font-size: 1.2em;
+    }
+
+    .game-nav {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .nav-link {
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+}

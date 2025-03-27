@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff9900;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px;
+}
+
+.balance-display {
+    font-size: 1.5em;
+    color: #ff9900;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+#ball-price {
+    padding: 5px;
+    font-size: 1em;
+    width: 80px;
+    border-radius: 5px;
+    border: 2px solid #ff9900;
+    background: #fff;
+    color: #000;
+}
+
+#drop-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: #ff9900;
+    color: #000;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    margin-left: 10px;
+}
+
+#drop-button:hover {
+    background: #e68a00;
+    transform: scale(1.05);
+}
+
+#drop-button:disabled {
+    background: #555;
+    border-color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.plinko-board {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background: #fff;
+    border: 5px solid #ff9900;
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.peg {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff9900;
+    border-radius: 50%;
+}
+
+.ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00ff00;
+    border-radius: 50%;
+    transition: top 0.05s linear, left 0.05s linear;
+}
+
+.slot {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    background: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+    border-top: 2px solid #ff9900;
+}
+
+.game-nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-bottom: 2px solid #ffd700;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background: #ff4500;
+    color: #fff;
+}
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .plinko-board {
+        width: 300px;
+        height: 300px;
+    }
+
+    .peg {
+        width: 6px;
+        height: 6px;
+    }
+
+    .ball {
+        width: 12px;
+        height: 12px;
+    }
+
+    .slot {
+        font-size: 0.6em;
+        height: 30px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #ball-price {
+        width: 60px;
+        font-size: 0.9em;
+    }
+
+    #drop-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    .game-nav {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .nav-link {
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+}

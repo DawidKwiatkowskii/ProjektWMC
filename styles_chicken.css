@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #4a2c00 0%, #1f1300 100%);
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px #000;
+    margin-bottom: 20px;
+}
+
+.balance-display {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+#bet-amount {
+    padding: 5px;
+    font-size: 1em;
+    width: 80px;
+    border-radius: 5px;
+    border: 2px solid #ffd700;
+    background: #fff;
+    color: #000;
+}
+
+#move-button, #cashout-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: #ff4500;
+    color: #fff;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    margin-left: 10px;
+}
+
+#move-button:hover, #cashout-button:hover {
+    background: #cc3700;
+    transform: scale(1.05);
+}
+
+#move-button:disabled, #cashout-button:disabled {
+    background: #555;
+    border-color: #888;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.road {
+    width: 600px; /* Wide for horizontal movement */
+    height: 150px; /* Tall enough for car */
+    background: #333;
+    border: 5px solid #ffd700;
+    border-radius: 10px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.chicken {
+    position: absolute;
+    font-size: 2em;
+    transition: left 0.5s ease; /* Horizontal movement */
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.car {
+    position: absolute;
+    font-size: 2em;
+    transition: top 1s linear; /* Vertical movement only */
+    top: -50px; /* Start above road */
+}
+
+.result {
+    font-size: 1.5em;
+    color: #ffd700;
+    margin: 20px 0;
+}
+
+.message {
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 5px;
+}
+
+.game-nav {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    border-bottom: 2px solid #ffd700;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 15px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background: #ff4500;
+    color: #fff;
+}
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .balance-display {
+        font-size: 1.2em;
+    }
+
+    #bet-amount {
+        width: 60px;
+        font-size: 0.9em;
+    }
+
+    #move-button, #cashout-button {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+
+    .road {
+        width: 300px;
+        height: 100px;
+    }
+
+    .chicken, .car {
+        font-size: 1.5em;
+    }
+
+    .result {
+        font-size: 1.2em;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+
+    .game-nav {
+        gap: 10px;
+        padding: 5px;
+    }
+
+    .nav-link {
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Cross the Road</title>
+    <link rel="stylesheet" href="styles_chicken.css">
+</head>
+<body>
+    <div class="game-container">
+        <nav class="game-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="index_plinko.html" class="nav-link">Plinko</a>
+            <a href="index_roulette.html" class="nav-link">Roulette</a>
+            <a href="index_case.html" class="nav-link">Case Opening</a>
+            <a href="index_chicken.html" class="nav-link">Chicken</a>
+        </nav>
+        <h1>Chicken Cross the Road</h1>
+        <div id="balance-display" class="balance-display">
+            Balance: $<span id="balance">1000</span>
+        </div>
+        <div class="controls">
+            <label for="bet-amount">Bet Amount ($): </label>
+            <input type="number" id="bet-amount" min="1" value="10" step="1">
+            <button id="move-button">Move</button>
+            <button id="cashout-button" disabled>Cash Out</button>
+        </div>
+        <div id="road" class="road">
+            <div id="chicken" class="chicken">🐔</div>
+            <div id="car" class="car">🚗</div>
+        </div>
+        <div id="result" class="result">Place a bet and move the chicken!</div>
+        <div id="message" class="message"></div>
+    </div>
+    <script src="script_chicken.js"></script>
+</body>
+</html>

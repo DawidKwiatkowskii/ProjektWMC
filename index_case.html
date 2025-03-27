@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Case Opener</title>
+    <link rel="stylesheet" href="styles_case.css">
+</head>
+<body>
+    <nav class="game-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index_plinko.html" class="nav-link">Plinko</a>
+        <a href="index_roulette.html" class="nav-link">Roulette</a>
+        <a href="index_case.html" class="nav-link">Case Opening</a>
+        <a href="index_chicken.html" class="nav-link">Chicken</a>
+    </nav>
+    <div class="case-container">
+        <h1>CS:GO Case Opener</h1>
+        <div id="game">
+            <div id="balance" class="chip-display">
+                <span class="chip-icon">💰</span> $<span id="money">1000</span>
+            </div>
+            <div id="case-wheel" class="case-wheel">
+                <div id="item-slots"></div>
+                <div id="pointer">▼</div>
+            </div>
+            <div id="result" class="result-display">Open a Case!</div>
+            <div id="controls" class="button-area">
+                <button id="open-case" onclick="openCase()">Open Case ($5)</button>
+            </div>
+            <div id="message" class="message-box"></div>
+        </div>
+    </div>
+    <script src="script_case.js"></script>
+</body>
+</html>
